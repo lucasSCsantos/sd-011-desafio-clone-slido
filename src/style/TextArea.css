@@ -1,0 +1,25 @@
+.textArea {
+	/* background-color: rgba(134, 238, 130, 0.651); */
+	height: 120px;
+	border-radius: 10px 10px 0 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.textArea textarea {
+	width: 600px;
+	height: 40px;
+	border: none;
+	outline: none;
+	padding: 4px 0;
+	font-size: 16px;
+	resize: none;
+	margin-bottom: 25px;
+}
+
+.textArea textarea::placeholder {
+	font-size: 16px;
+	color: rgb(153, 153, 153);
+	letter-spacing: -1px;
+}

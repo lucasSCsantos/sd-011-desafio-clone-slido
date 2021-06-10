@@ -25,13 +25,13 @@ function App() {
           <button type="button" onClick={ changeBorder }>
             <span>
               {comments}
-              Questions
+              Q&A
             </span>
           </button>
           <button type="button" onClick={ changeBorder }>
             <span>
               {poll}
-              Answared
+              Answer
             </span>
           </button>
         </div>

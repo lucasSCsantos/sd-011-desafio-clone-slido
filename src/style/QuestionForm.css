@@ -1,0 +1,27 @@
+.form {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	height: 184px;
+	width: 650px;
+	border-radius: 10px;
+	justify-content: space-between;
+	box-shadow: rgba(0, 0, 0, 0.24) 0 10px 50px;
+}
+
+.questionForm h1 {
+	font-size: 14px;
+	font-weight: normal;
+	color: grey;
+	margin-right: 500px;
+	margin-top: 5px;
+}
+
+.questionForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* background-color: blueviolet; */
+	height: 240px;
+	justify-content: space-evenly;
+}
