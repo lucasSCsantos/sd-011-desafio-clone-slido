@@ -19,27 +19,29 @@ class QuestionsList extends React.Component {
     const { questions, upVote, sortOrd, sortPop } = this.props;
     const size = 130;
     const height = (questions.length * size);
+    const sortButtons = (
+      <div
+        className="sort"
+        onClick={ this.changeBorder }
+        aria-hidden="true"
+      >
+        <span className="list-bottom-lines" />
+        <button
+          type="button"
+          onClick={ sortOrd }
+        >
+          <span>Recent</span>
+        </button>
+        <button
+          type="button"
+          onClick={ sortPop }
+        >
+          <span>Popular</span>
+        </button>
+      </div>);
     return (
       <div className="completeList">
-        <div
-          className="sort"
-          onClick={ this.changeBorder }
-          aria-hidden="true"
-        >
-          <span className="list-bottom-lines" />
-          <button
-            type="button"
-            onClick={ sortOrd }
-          >
-            <span>Recent</span>
-          </button>
-          <button
-            type="button"
-            onClick={ sortPop }
-          >
-            <span>Popular</span>
-          </button>
-        </div>
+        { questions.length > 0 && sortButtons }
         <div className="questionsList" style={ { height: `${height}px` } }>
           {questions.map((question, index) => (
             <Question key={ index } question={ question } upVote={ upVote } />
