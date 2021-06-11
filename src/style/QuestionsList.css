@@ -1,0 +1,9 @@
+.questionsList {
+	background-color: lawngreen;
+	display: flex;
+	
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+}

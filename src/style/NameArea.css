@@ -10,12 +10,22 @@
 
 .person {
 	/* background-color: blueviolet; */
-	font-size: 32px;
+	font-size: 15px;
 	margin-right: 12px;
+	color: rgb(85, 85, 85);
+	background-color:rgba(196, 196, 196, 0.527);
+	border-radius: 100px;
+	height: 35px;
+	width: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .nameArea button {
 	border-radius: 20px;
+	transition-timing-function: ease;
+	transition-duration: 0.2s;
 	background-color: #39AC37;
 	color: white;
 	font-size: 16px;
@@ -24,6 +34,13 @@
 	outline: none;
 	width: 80px;
 	height: 40px;
+	cursor: pointer;
+}
+
+.nameArea button:hover {
+	transition-timing-function: ease;
+	transition-duration: 0.2s;
+	background-color: #339930;
 }
 
 .nameArea label input {
