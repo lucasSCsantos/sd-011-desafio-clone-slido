@@ -4,15 +4,41 @@ import Question from './Question';
 import '../style/QuestionsList.css';
 
 class QuestionsList extends React.Component {
+  changeBorder({ target }) {
+    const { nodeName, firstChild } = target;
+    if (nodeName === 'SPAN' || firstChild.nodeName === 'SPAN') {
+      if (target.innerHTML.includes('Recent')) {
+        document.querySelector('.list-bottom-lines').style.transform = 'translateX(0px)';
+      } else {
+        document.querySelector('.list-bottom-lines').style.transform = 'translateX(70px)';
+      }
+    }
+  }
+
   render() {
-    const { questions, upVote, sortPop, sortOrd } = this.props;
+    const { questions, upVote, sortOrd, sortPop } = this.props;
     const size = 130;
     const height = (questions.length * size);
     return (
       <div className="completeList">
-        <div className="sort">
-          <button type="button" onClick={ sortPop }>Popular</button>
-          <button type="button" onClick={ sortOrd }>Recent</button>
+        <div
+          className="sort"
+          onClick={ this.changeBorder }
+          aria-hidden="true"
+        >
+          <span className="list-bottom-lines" />
+          <button
+            type="button"
+            onClick={ sortOrd }
+          >
+            <span>Recent</span>
+          </button>
+          <button
+            type="button"
+            onClick={ sortPop }
+          >
+            <span>Popular</span>
+          </button>
         </div>
         <div className="questionsList" style={ { height: `${height}px` } }>
           {questions.map((question, index) => (

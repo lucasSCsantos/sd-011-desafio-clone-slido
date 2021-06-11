@@ -54,3 +54,7 @@ html {
   position: absolute;
   height: 3px;
 }
+
+.blue {
+  color: #2A56A7 !important;
+}

@@ -24,18 +24,23 @@ class App extends React.Component {
 
   onSend() {
     const { question, name, id } = this.state;
+    const stringCode = 16;
+    const randomNumber = 16777215;
     const completeQuestion = {
       name,
       question,
       vote: 0,
       id,
+      randomColor: Math.floor(Math.random() * randomNumber).toString(stringCode),
     };
-    this.setState((previous) => ({
-      questionList: [...previous.questionList, completeQuestion],
-      name: '',
-      question: '',
-      id: previous.id + 1,
-    }));
+    if (question !== '') {
+      this.setState((previous) => ({
+        questionList: [...previous.questionList, completeQuestion],
+        name: '',
+        question: '',
+        id: previous.id + 1,
+      }));
+    }
   }
 
   sortByPopularity() {

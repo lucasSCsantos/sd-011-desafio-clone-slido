@@ -22,8 +22,11 @@ class Question extends React.Component {
     return (
       <div className="question">
         <div className="personName">
-          <div className="letter">
-            { question.name.charAt(0) }
+          <div
+            className="letter"
+            style={ { backgroundColor: `#${question.randomColor}` } }
+          >
+            { question.name ? question.name.charAt(0) : 'A'}
           </div>
           <div className="texts">
             <h1>

@@ -6,8 +6,48 @@
 }
 
 .completeList {
-	margin-top: 30px;
+	margin-top: 20px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+}
+
+.sort {
+	margin-right: 450px;
+	display: flex;
+	justify-content: space-evenly;
+	/* background-color: hotpink; */
+	width: 156px;
+}
+
+.sort button {
+	height: 46px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sort button span {
+	font-size: 16px;
+  font-weight: 600;
+  color: rgb(54, 54, 54);
+  display: flex;
+  justify-content: space-evenly;
+  width: 45%;
+}
+
+.list-bottom-lines {
+  width: 80px;
+ 	margin-top: 43px;
+	margin-left: -70px;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+  transform: translateX(0px);
+  border-radius: 10px 10px 0 0;
+  background-color:#196FE0;
+  position: absolute;
+  height: 3px;
 }
