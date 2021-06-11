@@ -12,21 +12,55 @@ class App extends React.Component {
       questionList: [],
       question: '',
       name: '',
+      atualizar: 0,
+      id: 0,
     };
     this.changeValue = this.changeValue.bind(this);
     this.onSend = this.onSend.bind(this);
+    this.upVote = this.upVote.bind(this);
+    this.sortByPopularity = this.sortByPopularity.bind(this);
+    this.sortByOrder = this.sortByOrder.bind(this);
   }
 
   onSend() {
-    const { question, name } = this.state;
+    const { question, name, id } = this.state;
     const completeQuestion = {
       name,
       question,
+      vote: 0,
+      id,
     };
     this.setState((previous) => ({
       questionList: [...previous.questionList, completeQuestion],
       name: '',
       question: '',
+      id: previous.id + 1,
+    }));
+  }
+
+  sortByPopularity() {
+    const { questionList } = this.state;
+    const sortedList = questionList.sort((a, b) => (
+      b.vote - a.vote
+    ));
+    this.setState({
+      questionList: sortedList,
+    });
+  }
+
+  sortByOrder() {
+    const { questionList } = this.state;
+    const sortedList = questionList.sort((a, b) => (
+      a.id - b.id
+    ));
+    this.setState({
+      questionList: sortedList,
+    });
+  }
+
+  upVote() {
+    this.setState((previous) => ({
+      atualizar: previous.atualizar + 1,
     }));
   }
 
@@ -49,7 +83,6 @@ class App extends React.Component {
     const comments = <FontAwesomeIcon icon={ faComments } />;
     const poll = <FontAwesomeIcon icon={ faPoll } />;
     const { question, name, questionList } = this.state;
-    console.log(questionList);
     return (
       <div className="App">
         <header className="header">
@@ -75,7 +108,12 @@ class App extends React.Component {
           question={ question }
           onSend={ this.onSend }
         />
-        <QuestionsList questions={ questionList } />
+        <QuestionsList
+          questions={ questionList }
+          upVote={ this.upVote }
+          sortPop={ this.sortByPopularity }
+          sortOrd={ this.sortByOrder }
+        />
       </div>
     );
   }

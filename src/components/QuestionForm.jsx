@@ -28,7 +28,7 @@ class QuestionForm extends React.Component {
       <div className="questionForm">
         <h1>Ask the speaker</h1>
         <form>
-          <div className="form">
+          <div className="form minus">
             <TextArea func={ func } value={ question } />
             <NameArea func={ func } value={ name } onSend={ onSend } />
           </div>

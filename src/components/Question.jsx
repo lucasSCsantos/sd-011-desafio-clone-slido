@@ -1,10 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../style/Question.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 class Question extends React.Component {
+  constructor(props) {
+    super(props);
+    this.upVote = this.upVote.bind(this);
+  }
+
+  upVote() {
+    const { question, upVote } = this.props;
+    upVote();
+    question.vote += 1;
+  }
+
   render() {
-    const { question } = this.props;
+    const { question, upVote } = this.props;
+    const { id } = question;
     return (
       <div className="question">
         <div className="personName">
@@ -16,9 +30,20 @@ class Question extends React.Component {
               { question.name ? question.name : 'Anonymous' }
             </h1>
             <p>
-              3 hours ago
+              { id === 1 ? `${id} hour ago` : `${id} hours ago`}
             </p>
           </div>
+          <button
+            aria-label="vote"
+            type="button"
+            className="votes"
+            onClick={ this.upVote }
+            onChange={ upVote }
+            value={ question.vote }
+          >
+            { question.vote }
+            <FontAwesomeIcon icon={ faThumbsUp } />
+          </button>
         </div>
         <div className="personQuestion">
           <p>
@@ -31,11 +56,13 @@ class Question extends React.Component {
 }
 
 Question.propTypes = {
-  question: PropTypes.objectOf(),
+  question: PropTypes.objectOf(String),
+  upVote: PropTypes.string,
 };
 
 Question.defaultProps = {
   question: {},
+  upVote: '',
 };
 
 export default Question;
