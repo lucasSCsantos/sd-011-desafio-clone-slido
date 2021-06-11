@@ -60,7 +60,7 @@ class Answered extends React.Component {
 
 Answered.propTypes = {
   question: PropTypes.objectOf(String),
-  upVote: PropTypes.string,
+  upVote: PropTypes.func,
 };
 
 Answered.defaultProps = {

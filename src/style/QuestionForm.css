@@ -2,11 +2,22 @@
 	background-color: white;
 	display: flex;
 	flex-direction: column;
-	/* height: 184px; */
 	width: 650px;
 	border-radius: 10px;
 	justify-content: space-between;
 	box-shadow: rgba(0, 0, 0, 0.24) 0 10px 50px;
+}
+
+.minus {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	width: 650px;
+	border-radius: 10px;
+	justify-content: space-between;
+	box-shadow: rgba(0, 0, 0, 0.24) 0 10px 50px;
+	/* change */
+	height: 90px;
 }
 
 .questionForm h1 {
@@ -24,4 +35,185 @@
 	/* background-color: blueviolet; */
 	height: 240px;
 	justify-content: space-evenly;
+}
+
+.minusQuest {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* background-color: blueviolet; */
+	height: 240px;
+	justify-content: space-evenly;
+	/* change */
+	height: 150px;
+}
+
+/* textArea */
+
+.textArea {
+	background-color: transparent;
+	height: 80px;
+	width: 650px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 5px;
+	cursor: text;
+}
+
+.textArea .textarea {
+	width: 600px;
+	height: 40px;
+	border: none;
+	outline: none;
+	padding: 8px 0;
+	font-size: 16px;
+	resize: none;
+}
+
+.textArea .minusText {
+	width: 600px;
+	height: 40px;
+	border: none;
+	outline: none;
+	padding: 8px 0;
+	font-size: 16px;
+	resize: none;
+	/* change */
+	width: 560px;
+}
+
+.textArea textarea::placeholder {
+	font-size: 16px;
+	color: rgb(153, 153, 153);
+	letter-spacing: -1.5px;
+}
+
+.totalArea {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 120px;
+}
+
+.totalArea .count {
+	width: 600px;
+	height: 40px;
+	font-size: 14px;
+	/* background-color: hotpink; */
+	display: flex;
+	justify-content: flex-end;
+	color: grey;
+}
+
+.totalArea .minusCount {
+	width: 600px;
+	height: 40px;
+	font-size: 14px;
+	/* background-color: hotpink; */
+	display: flex;
+	justify-content: flex-end;
+	color: grey;
+	/* change */
+	display: none;
+}
+
+/* namearea */
+
+.nameArea {
+	width: 650px;
+	display: flex;
+	justify-content: center;
+	/* background-color: violet; */
+	height: 64px;
+	border-radius: 0 0 10px 10px;
+	align-items: center;
+}
+
+.minusName {
+	width: 650px;
+	display: flex;
+	justify-content: center;
+	/* background-color: violet; */
+	height: 64px;
+	border-radius: 0 0 10px 10px;
+	align-items: center;
+	/* change */
+	display: none;
+}
+
+.person {
+	/* background-color: blueviolet; */
+	font-size: 15px;
+	margin-right: 12px;
+	color: rgb(85, 85, 85);
+	background-color:rgba(196, 196, 196, 0.527);
+	border-radius: 100px;
+	height: 35px;
+	width: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.user {
+	/* background-color: blueviolet; */
+	font-size: 15px;
+	margin-right: 12px;
+	color: rgb(85, 85, 85);
+	background-color:rgba(196, 196, 196, 0.527);
+	border-radius: 100px;
+	height: 35px;
+	width: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+
+.minusUser {
+	/* background-color: blueviolet; */
+	font-size: 15px;
+	margin-right: 12px;
+	color: rgb(85, 85, 85);
+	background-color:rgba(196, 196, 196, 0.527);
+	border-radius: 100px;
+	height: 35px;
+	width: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.nameArea button {
+	border-radius: 20px;
+	transition-timing-function: ease;
+	transition-duration: 0.2s;
+	background-color: #39AC37;
+	color: white;
+	font-size: 16px;
+	font-weight: 600;
+	border: none;
+	outline: none;
+	width: 80px;
+	height: 40px;
+	cursor: pointer;
+}
+
+.nameArea button:hover {
+	transition-timing-function: ease;
+	transition-duration: 0.2s;
+	background-color: #339930;
+}
+
+.nameArea label input {
+	border: none;
+	width: 482px;
+	height: 31px;
+	outline: none;
+}
+
+.nameArea label input::placeholder {
+	font-size: 14px;
+	color: rgb(153, 153, 153);
 }

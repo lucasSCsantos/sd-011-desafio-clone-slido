@@ -1,9 +1,9 @@
 import { faComments, faPoll } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
 import './App.css';
-import AnsweredList from './components/AnweredList';
+import AnsweredList from './components/AnsweredList';
 import AskQuestion from './components/AskQuestion';
 // import QuestionForm from './components/QuestionForm';
 // import QuestionsList from './components/QuestionsList';
@@ -27,9 +27,8 @@ class App extends React.Component {
     this.filterAnswered = this.filterAnswered.bind(this);
   }
 
-  onSend() {
+  async onSend() {
     const { question, name, id } = this.state;
-    const answeredList = this.filterAnswered();
     const stringCode = 16;
     const randomNumber = 16777215;
     const completeQuestion = {
@@ -41,21 +40,24 @@ class App extends React.Component {
       randomColor: Math.floor(Math.random() * randomNumber).toString(stringCode),
     };
     if (question !== '') {
-      this.setState((previous) => ({
+      await this.setState((previous) => ({
         questionList: [...previous.questionList, completeQuestion],
         name: '',
         question: '',
         id: previous.id + 1,
-        answeredList,
       }));
     }
+    this.filterAnswered();
   }
 
   filterAnswered() {
     const { questionList } = this.state;
-    return questionList.filter((question) => (
+    const answeredList = questionList.filter((question) => (
       question.answered === true
     ));
+    this.setState({
+      answeredList,
+    });
   }
 
   sortByPopularity() {
@@ -105,45 +107,47 @@ class App extends React.Component {
     const poll = <FontAwesomeIcon icon={ faPoll } />;
     const { question, name, questionList, answeredList } = this.state;
     return (
-      <div className="App">
+      <BrowserRouter>
         <header className="header">
           <div className="header-options" aria-hidden="true">
             <span className="bottom-line" />
-            <button type="button" onClick={ this.changeBorder }>
-              <span>
-                {comments}
+            <Link to="/" className="link">
+              <button type="button" onClick={ this.changeBorder } className="span">
+                { comments }
                 Questions
-              </span>
-            </button>
-            <button type="button" onClick={ this.changeBorder }>
-              <span>
-                {poll}
+              </button>
+            </Link>
+            <Link to="/answered" className="link">
+              <button type="button" onClick={ this.changeBorder } className="span">
+                { poll }
                 Answered
-              </span>
-            </button>
+              </button>
+            </Link>
           </div>
         </header>
-        <BrowserRouter>
-          <Route path="/" exact>
-            <AskQuestion
-              func={ this.changeValue }
-              name={ name }
-              question={ question }
-              onSend={ this.onSend }
-              questions={ questionList }
-              upVote={ this.upVote }
-              sortPop={ this.sortByPopularity }
-              sortOrd={ this.sortByOrder }
-            />
-          </Route>
-          <Route path="/answered">
-            <AnsweredList
-              questions={ answeredList }
-              upVote={ this.upVote }
-            />
-          </Route>
-        </BrowserRouter>
-      </div>
+        <Route
+          path="/answered"
+        >
+          <AnsweredList
+            questions={ answeredList }
+            upVote={ this.upVote }
+            func={ this.filterAnswered }
+          />
+        </Route>
+        <Route path="/" exact>
+          <AskQuestion
+            func={ this.changeValue }
+            filter={ this.filterAnswered }
+            name={ name }
+            question={ question }
+            onSend={ this.onSend }
+            questions={ questionList }
+            upVote={ this.upVote }
+            sortPop={ this.sortByPopularity }
+            sortOrd={ this.sortByOrder }
+          />
+        </Route>
+      </BrowserRouter>
     );
   }
 }

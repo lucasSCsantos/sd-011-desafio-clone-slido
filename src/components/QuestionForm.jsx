@@ -22,14 +22,20 @@ class QuestionForm extends React.Component {
     });
   }
 
+  changeStyles() {
+    console.log(document.querySelector('.questionForm'));
+    console.log(document.querySelector('.form'));
+    console.log(document.querySelector('.textarea'));
+  }
+
   render() {
     const { func, name, question, onSend } = this.props;
     return (
       <div className="questionForm">
         <h1>Ask the speaker</h1>
         <form>
-          <div className="form minus">
-            <TextArea func={ func } value={ question } />
+          <div className="form">
+            <TextArea func={ func } value={ question } click={ this.changeStyles } />
             <NameArea func={ func } value={ name } onSend={ onSend } />
           </div>
         </form>

@@ -24,7 +24,6 @@ html {
 }
 
 .header-options button {
-  width: 189px;
   background-color: transparent;
   border: none;
   display: flex;
@@ -33,7 +32,14 @@ html {
   cursor: pointer;
 }
 
-.header-options button span {
+.link {
+  text-decoration: none;
+  width: 189px;
+  display: flex;
+  justify-content: center;
+}
+
+.header-options .span {
   font-size: 16px;
   font-weight: 600;
   color: white;
@@ -45,7 +51,7 @@ html {
 .bottom-line {
   width: 189px;
   top: 53px;
-  right: 50%;
+  margin-right: 189px;
   transition-timing-function: ease;
   transition-duration: 0.2s;
   transform: translateX(0px);

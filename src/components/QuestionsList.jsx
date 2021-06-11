@@ -16,7 +16,7 @@ class QuestionsList extends React.Component {
   }
 
   render() {
-    const { questions, upVote, sortOrd, sortPop } = this.props;
+    const { questions, upVote, sortOrd, sortPop, filter } = this.props;
     const size = 130;
     const height = (questions.length * size);
     const sortButtons = (
@@ -44,7 +44,12 @@ class QuestionsList extends React.Component {
         { questions.length > 0 && sortButtons }
         <div className="questionsList" style={ { height: `${height}px` } }>
           {questions.map((question, index) => (
-            <Question key={ index } question={ question } upVote={ upVote } />
+            <Question
+              key={ index }
+              question={ question }
+              upVote={ upVote }
+              filter={ filter }
+            />
           ))}
         </div>
       </div>
@@ -57,6 +62,7 @@ QuestionsList.propTypes = {
   upVote: PropTypes.func,
   sortPop: PropTypes.func,
   sortOrd: PropTypes.func,
+  filter: PropTypes.func,
 };
 
 QuestionsList.defaultProps = {
@@ -64,6 +70,7 @@ QuestionsList.defaultProps = {
   upVote: '',
   sortPop: '',
   sortOrd: '',
+  filter: '',
 };
 
 export default QuestionsList;

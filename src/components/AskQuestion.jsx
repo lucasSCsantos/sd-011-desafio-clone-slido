@@ -8,7 +8,7 @@ class AskQuestion extends React.Component {
     const {
       func, name, question,
       onSend, questions, upVote,
-      sortPop, sortOrd,
+      sortPop, sortOrd, filter,
     } = this.props;
     return (
       <div>
@@ -23,6 +23,7 @@ class AskQuestion extends React.Component {
           upVote={ upVote }
           sortPop={ sortPop }
           sortOrd={ sortOrd }
+          filter={ filter }
         />
       </div>
     );
@@ -38,6 +39,7 @@ AskQuestion.propTypes = {
   upVote: PropTypes.func,
   sortPop: PropTypes.func,
   sortOrd: PropTypes.func,
+  filter: PropTypes.func,
 };
 
 AskQuestion.defaultProps = {
@@ -49,6 +51,7 @@ AskQuestion.defaultProps = {
   upVote: '',
   sortPop: '',
   sortOrd: '',
+  filter: '',
 };
 
 export default AskQuestion;

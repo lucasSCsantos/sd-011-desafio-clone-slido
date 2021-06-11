@@ -8,6 +8,7 @@ class Question extends React.Component {
   constructor(props) {
     super(props);
     this.upVote = this.upVote.bind(this);
+    this.answer = this.answer.bind(this);
   }
 
   upVote() {
@@ -16,11 +17,17 @@ class Question extends React.Component {
     question.vote += 1;
   }
 
+  answer() {
+    const { question, filter } = this.props;
+    question.answered = true;
+    filter();
+  }
+
   render() {
     const { question, upVote } = this.props;
     const { id } = question;
     return (
-      <div className="question">
+      <div className="question" onDoubleClick={ this.answer }>
         <div className="personName">
           <div
             className="letter"
@@ -60,12 +67,14 @@ class Question extends React.Component {
 
 Question.propTypes = {
   question: PropTypes.objectOf(String),
-  upVote: PropTypes.string,
+  upVote: PropTypes.func,
+  filter: PropTypes.func,
 };
 
 Question.defaultProps = {
   question: {},
   upVote: '',
+  filter: '',
 };
 
 export default Question;

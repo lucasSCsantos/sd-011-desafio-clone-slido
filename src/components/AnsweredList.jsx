@@ -10,7 +10,6 @@ class AnsweredList extends React.Component {
     const height = (questions.length * size);
     return (
       <div className="completeList">
-        { questions.length > 0 && sortButtons }
         <div className="questionsList" style={ { height: `${height}px` } }>
           {questions.map((question, index) => (
             <Answered key={ index } question={ question } upVote={ upVote } />
