@@ -7,7 +7,6 @@ import AnsweredList from './components/AnsweredList';
 import AskQuestion from './components/AskQuestion';
 // import QuestionForm from './components/QuestionForm';
 // import QuestionsList from './components/QuestionsList';
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -31,21 +30,24 @@ class App extends React.Component {
   async onSend() {
     const { question, name, id } = this.state;
     const stringCode = 16;
+    const time = new Date().getMinutes();
     const randomNumber = 16777215;
     const completeQuestion = {
       name,
       question,
       vote: 0,
+      time: new Date().getMinutes(),
       id,
       answered: false,
       randomColor: Math.floor(Math.random() * randomNumber).toString(stringCode),
     };
+    console.log(completeQuestion.time);
     if (question !== '') {
       await this.setState((previous) => ({
         questionList: [...previous.questionList, completeQuestion],
         name: '',
         question: '',
-        id: previous.id + 1,
+        id: completeQuestion.time - time,
       }));
     }
     this.filterAnswered();
@@ -111,6 +113,15 @@ class App extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  sort() {
+    const { sortType } = this.state;
+    if (sortType === 'Order') {
+      this.sortByOrder();
+    } else {
+      this.sortByPopularity();
+    }
   }
 
   render() {

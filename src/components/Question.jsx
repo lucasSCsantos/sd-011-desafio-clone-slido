@@ -26,6 +26,8 @@ class Question extends React.Component {
   render() {
     const { question, upVote } = this.props;
     const { id } = question;
+    question.id = (new Date().getMinutes()) - question.time;
+    console.log(question.id);
     return (
       <div className="question" onDoubleClick={ this.answer }>
         <div className="personName">
@@ -40,7 +42,7 @@ class Question extends React.Component {
               { question.name ? question.name : 'Anonymous' }
             </h1>
             <p>
-              { id === 1 ? `${id} hour ago` : `${id} hours ago`}
+              { id === 1 ? `${id} minute ago` : `${id} minutes ago`}
             </p>
           </div>
           <button

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Answered from './Answered';
-import '../style/AnsweredList.css';
 
 class AnsweredList extends React.Component {
   render() {
