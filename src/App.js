@@ -18,6 +18,7 @@ class App extends React.Component {
       name: '',
       atualizar: 0,
       id: 0,
+      sortType: 'Order',
     };
     this.changeValue = this.changeValue.bind(this);
     this.onSend = this.onSend.bind(this);
@@ -61,27 +62,37 @@ class App extends React.Component {
   }
 
   sortByPopularity() {
-    const { questionList } = this.state;
+    const { questionList, sortType } = this.state;
     const sortedList = questionList.sort((a, b) => (
       b.vote - a.vote
     ));
+    console.log(sortType);
     this.setState({
       questionList: sortedList,
+      sortType: 'Popularity',
     });
   }
 
   sortByOrder() {
-    const { questionList } = this.state;
+    const { questionList, sortType } = this.state;
     const sortedList = questionList.sort((a, b) => (
       a.id - b.id
     ));
+    console.log(sortType);
     this.setState({
       questionList: sortedList,
+      sortType: 'Order',
     });
   }
 
-  upVote() {
-    this.setState((previous) => ({
+  async upVote() {
+    const { sortType } = this.state;
+    if (sortType === 'Order') {
+      this.sortByOrder();
+    } else {
+      this.sortByPopularity();
+    }
+    await this.setState((previous) => ({
       atualizar: previous.atualizar + 1,
     }));
   }
@@ -105,7 +116,7 @@ class App extends React.Component {
   render() {
     const comments = <FontAwesomeIcon icon={ faComments } />;
     const poll = <FontAwesomeIcon icon={ faPoll } />;
-    const { question, name, questionList, answeredList } = this.state;
+    const { question, name, questionList, answeredList, sortType } = this.state;
     return (
       <BrowserRouter>
         <header className="header">
@@ -145,6 +156,7 @@ class App extends React.Component {
             upVote={ this.upVote }
             sortPop={ this.sortByPopularity }
             sortOrd={ this.sortByOrder }
+            sortType={ sortType }
           />
         </Route>
       </BrowserRouter>

@@ -16,7 +16,7 @@ class QuestionsList extends React.Component {
   }
 
   render() {
-    const { questions, upVote, sortOrd, sortPop, filter } = this.props;
+    const { questions, upVote, sortOrd, sortPop, filter, sortType } = this.props;
     const size = 130;
     const height = (questions.length * size);
     const sortButtons = (
@@ -30,12 +30,14 @@ class QuestionsList extends React.Component {
           type="button"
           onClick={ sortOrd }
         >
+          { sortType === 'Order' && sortOrd }
           <span>Recent</span>
         </button>
         <button
           type="button"
           onClick={ sortPop }
         >
+          { sortType === 'Popularity' && sortPop }
           <span>Popular</span>
         </button>
       </div>);
@@ -59,6 +61,7 @@ class QuestionsList extends React.Component {
 
 QuestionsList.propTypes = {
   questions: PropTypes.arrayOf(Object),
+  sortType: PropTypes.string,
   upVote: PropTypes.func,
   sortPop: PropTypes.func,
   sortOrd: PropTypes.func,
@@ -67,6 +70,7 @@ QuestionsList.propTypes = {
 
 QuestionsList.defaultProps = {
   questions: '',
+  sortType: '',
   upVote: '',
   sortPop: '',
   sortOrd: '',
