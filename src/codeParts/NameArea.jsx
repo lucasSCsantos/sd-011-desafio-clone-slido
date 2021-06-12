@@ -9,7 +9,7 @@ class NameArea extends React.Component {
     const { func, value, onSend } = this.props;
     const profile = <FontAwesomeIcon icon={ faUser } />;
     return (
-      <div className="nameArea">
+      <div className="minusName">
         <div className="person">
           {profile}
         </div>

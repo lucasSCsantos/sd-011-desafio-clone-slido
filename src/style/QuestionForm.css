@@ -6,6 +6,8 @@
 	border-radius: 10px;
 	justify-content: space-between;
 	box-shadow: rgba(0, 0, 0, 0.24) 0 10px 50px;
+	height: 180px;
+	transition: 0.15s ease;
 }
 
 .minus {
@@ -17,10 +19,11 @@
 	justify-content: space-between;
 	box-shadow: rgba(0, 0, 0, 0.24) 0 10px 50px;
 	/* change */
+	transition: 0.15s ease;
 	height: 90px;
 }
 
-.questionForm h1 {
+.h1 {
 	font-size: 14px;
 	font-weight: normal;
 	color: grey;
@@ -35,6 +38,7 @@
 	/* background-color: blueviolet; */
 	height: 240px;
 	justify-content: space-evenly;
+	transition: 0.15s ease;
 }
 
 .minusQuest {
@@ -42,10 +46,10 @@
 	flex-direction: column;
 	align-items: center;
 	/* background-color: blueviolet; */
-	height: 240px;
 	justify-content: space-evenly;
 	/* change */
 	height: 150px;
+	transition: 0.15s ease;
 }
 
 /* textArea */
@@ -61,7 +65,7 @@
 	cursor: text;
 }
 
-.textArea .textarea {
+.textarea {
 	width: 600px;
 	height: 40px;
 	border: none;
@@ -69,18 +73,20 @@
 	padding: 8px 0;
 	font-size: 16px;
 	resize: none;
+	transition: 0.15s ease;
 }
 
-.textArea .minusText {
+.minusText {
 	width: 600px;
 	height: 40px;
 	border: none;
 	outline: none;
-	padding: 8px 0;
+	padding: 10px 0;
 	font-size: 16px;
 	resize: none;
 	/* change */
 	width: 560px;
+	transition: 0.15s ease;
 }
 
 .textArea textarea::placeholder {
@@ -96,7 +102,9 @@
 	height: 120px;
 }
 
-.totalArea .count {
+.count {
+	transition-timing-function: ease;
+	transition-duration: 1s;
 	width: 600px;
 	height: 40px;
 	font-size: 14px;
@@ -106,7 +114,9 @@
 	color: grey;
 }
 
-.totalArea .minusCount {
+.minusCount {
+	transition-timing-function: ease;
+	transition-duration: 1s;
 	width: 600px;
 	height: 40px;
 	font-size: 14px;
@@ -121,6 +131,8 @@
 /* namearea */
 
 .nameArea {
+	transition-timing-function: ease;
+	transition-duration: 1s;
 	width: 650px;
 	display: flex;
 	justify-content: center;
@@ -131,6 +143,8 @@
 }
 
 .minusName {
+	transition-timing-function: ease;
+	transition-duration: 1s;
 	width: 650px;
 	display: flex;
 	justify-content: center;
@@ -157,7 +171,7 @@
 }
 
 .user {
-	/* background-color: blueviolet; */
+	background-color: blueviolet;
 	font-size: 15px;
 	margin-right: 12px;
 	color: rgb(85, 85, 85);
