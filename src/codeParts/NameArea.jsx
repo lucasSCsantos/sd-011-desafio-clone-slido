@@ -1,7 +1,6 @@
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import '../style/NameArea.css';
 import PropTypes from 'prop-types';
 
 class NameArea extends React.Component {

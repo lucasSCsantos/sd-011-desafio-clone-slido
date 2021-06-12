@@ -41,7 +41,7 @@
 
 .list-bottom-lines {
   width: 80px;
- 	margin-top: 43px;
+ 	margin-top: 44px;
 	margin-left: -70px;
   transition-timing-function: ease;
   transition-duration: 0.2s;
@@ -49,5 +49,5 @@
   border-radius: 10px 10px 0 0;
   background-color:#196FE0;
   position: absolute;
-  height: 3px;
+  height: 2px;
 }

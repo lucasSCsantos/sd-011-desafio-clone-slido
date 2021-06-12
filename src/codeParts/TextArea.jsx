@@ -1,5 +1,4 @@
 import React from 'react';
-import '../style/TextArea.css';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
