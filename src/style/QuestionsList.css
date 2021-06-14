@@ -1,53 +1,52 @@
 .questionsList {
-	display: flex;
-	justify-content: space-between;
-	flex-direction: column;
-	align-items: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .completeList {
-	margin-top: 20px;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
 .sort {
-	margin-right: 450px;
-	display: flex;
-	justify-content: space-evenly;
-	/* background-color: hotpink; */
-	width: 156px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 450px;
+  width: 156px;
 }
 
 .sort button {
-	height: 46px;
+  align-items: center;
   background-color: transparent;
   border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
+  display: flex;
+  height: 46px;
+  justify-content: center;
 }
 
 .sort button span {
-	font-size: 16px;
-  font-weight: 600;
   color: rgb(54, 54, 54);
   display: flex;
+  font-size: 16px;
+  font-weight: 600;
   justify-content: space-evenly;
   width: 45%;
 }
 
 .list-bottom-lines {
-  width: 80px;
- 	margin-top: 44px;
-	margin-left: -70px;
-  transition-timing-function: ease;
-  transition-duration: 0.2s;
-  transform: translateX(0px);
+  background-color: #196fe0;
   border-radius: 10px 10px 0 0;
-  background-color:#196FE0;
-  position: absolute;
   height: 2px;
+  margin-left: -70px;
+  margin-top: 44px;
+  position: absolute;
+  transform: translateX(0);
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  width: 80px;
 }

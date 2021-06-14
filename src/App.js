@@ -41,7 +41,6 @@ class App extends React.Component {
       answered: false,
       randomColor: Math.floor(Math.random() * randomNumber).toString(stringCode),
     };
-    console.log(completeQuestion.time);
     if (question !== '') {
       await this.setState((previous) => ({
         questionList: [...previous.questionList, completeQuestion],
@@ -51,6 +50,7 @@ class App extends React.Component {
       }));
     }
     this.filterAnswered();
+    this.sort();
   }
 
   filterAnswered() {
@@ -77,9 +77,7 @@ class App extends React.Component {
 
   sortByOrder() {
     const { questionList, sortType } = this.state;
-    const sortedList = questionList.sort((a, b) => (
-      a.id - b.id
-    ));
+    const sortedList = questionList.sort((a, b) => (a.id - b.id));
     console.log(sortType);
     this.setState({
       questionList: sortedList,
