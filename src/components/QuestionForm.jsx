@@ -8,10 +8,6 @@ class QuestionForm extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   question: '',
-    //   name: '',
-    // };
     this.changeValue = this.changeValue.bind(this);
     this.changeStyles = this.changeStyles.bind(this);
     this.changeStyleKeyPressed = this.changeStyleKeyPressed.bind(this);
@@ -57,7 +53,6 @@ class QuestionForm extends React.Component {
   }
 
   changeStyles({ target }) {
-    console.log(target);
     const { question } = this.props;
     const object = {
       quest: document.querySelector('.minusQuest'),

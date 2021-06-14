@@ -27,7 +27,6 @@ class Question extends React.Component {
     const { question, upVote } = this.props;
     const { id } = question;
     question.id = (new Date().getMinutes()) - question.time;
-    console.log(question.id);
     return (
       <div className="question" onDoubleClick={ this.answer }>
         <div className="personName">

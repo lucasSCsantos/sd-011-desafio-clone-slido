@@ -68,7 +68,6 @@ class App extends React.Component {
     const sortedList = questionList.sort((a, b) => (
       b.vote - a.vote
     ));
-    console.log(sortType);
     this.setState({
       questionList: sortedList,
       sortType: 'Popularity',
@@ -78,7 +77,6 @@ class App extends React.Component {
   sortByOrder() {
     const { questionList, sortType } = this.state;
     const sortedList = questionList.sort((a, b) => (a.id - b.id));
-    console.log(sortType);
     this.setState({
       questionList: sortedList,
       sortType: 'Order',
