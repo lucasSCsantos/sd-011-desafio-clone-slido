@@ -18,7 +18,7 @@ Um clone da ferramente Slido que é utilizada para interação da audiencia dura
 1. Clone o repositório
 
 ```javascript
-git clone git@github.com:lucasSCsantos/sd-011-project-frontend-online-store.git
+git clone https://github.com/lucasSCsantos/sd-011-desafio-clone-slido.git
 ```
 
 2. Instale as dependencias
