@@ -52,7 +52,7 @@ class QuestionForm extends React.Component {
     user.classList.add('minusUser');
   }
 
-  changeStyles({ target }) {
+  changeStyles() {
     const { question } = this.props;
     const object = {
       quest: document.querySelector('.minusQuest'),
